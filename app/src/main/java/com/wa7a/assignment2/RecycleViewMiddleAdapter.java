@@ -34,7 +34,6 @@ public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMi
         Model model = models.get(position);
         holder.imageView.setImageResource(model.getImg());
         holder.textViewName.setText(model.getModelName());
-        holder.textViewCapacity.setText("( "+model.getSize()+" )");
         holder.textViewPrice.setText(model.getPrice()+ " $");
     }
 
@@ -44,7 +43,7 @@ public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMi
     }
 
     class ModelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView textViewName, textViewPrice,textViewCapacity;
+        TextView textViewName, textViewPrice;
         ImageView imageView;
         OnModelListener onModelListener;
         public ModelViewHolder(@NonNull View itemView, OnModelListener onModelListener) {
@@ -52,7 +51,6 @@ public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMi
             textViewName = itemView.findViewById(R.id.custom_textview_model);
             imageView = itemView.findViewById(R.id.custom_imageview_img);
             textViewPrice = itemView.findViewById(R.id.custom_textview_price);
-            textViewCapacity = itemView.findViewById(R.id.custom_textview_capacity);
             this.onModelListener = onModelListener;
             itemView.setOnClickListener(this);
         }

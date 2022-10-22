@@ -89,7 +89,7 @@
                 android:paddingStart="@dimen/_10sdp"
                 android:paddingEnd="@dimen/_10sdp"
                 android:paddingTop="@dimen/_10sdp"
-                android:text="Storage Capacity:" />
+                android:text="Storage Capacity: GB" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -102,7 +102,7 @@
                     android:id="@+id/size_64"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="64 GB"
+                    android:text="64"
 
                     android:visibility="gone" />
 
@@ -110,7 +110,7 @@
                     android:id="@+id/size_128"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="128 GB"
+                    android:text="128"
 
                     android:visibility="gone" />
 
@@ -118,7 +118,7 @@
                     android:id="@+id/size_256"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="256 GB"
+                    android:text="256"
 
                     android:visibility="gone" />
 
@@ -126,7 +126,7 @@
                     android:id="@+id/size_512"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="512 GB"
+                    android:text="512"
 
                     android:visibility="gone" />
             </RadioGroup>

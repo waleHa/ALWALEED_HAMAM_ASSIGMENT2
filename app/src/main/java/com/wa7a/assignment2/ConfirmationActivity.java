@@ -34,6 +34,6 @@ public class ConfirmationActivity extends AppCompatActivity {
         textViewCustomerInfo.setText("Name: "+userInfoIntent.getName().toString() + "\nAddress: " + userInfoIntent.getAddress1().toString()+"\nCity: "+userInfoIntent.getCity().toString()+"\nPostal Code"+userInfoIntent.getPostalCode().toString()+"\nPhone: "+userInfoIntent.getTelephone());
 
         textViewPaymentInfo.setText("Card Number: "+paymentInfoIntent.getCreditCardNumber().toString()+ "\nCard Type: " + paymentInfoIntent.getCardType().toString());
-        textViewProductInfo.setText("Name: "+userInfoIntent.getName().toString() + "\nAddress: " + userInfoIntent.getAddress1().toString()+"\nCity: "+userInfoIntent.getCity().toString()+"\nPostal Code"+userInfoIntent.getPostalCode().toString()+"\nPhone: "+userInfoIntent.getTelephone());
+        textViewProductInfo.setText("Brand: "+userOptionIntent.getBrand().toString() + "\nModel: " + userOptionIntent.getModelName().toString()+"\nPrice: "+userOptionIntent.getPrice()+"\nStorage: "+userOptionIntent.getSize()+"\nColor: "+userOptionIntent.getColor());
     }
 }

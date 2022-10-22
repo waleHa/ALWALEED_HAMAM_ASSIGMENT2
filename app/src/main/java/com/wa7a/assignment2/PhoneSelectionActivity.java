@@ -54,21 +54,25 @@ public class PhoneSelectionActivity extends AppCompatActivity {
         if (intentValue.equals(getResources().getString(R.string.IPHONE))) {
             model = Model.getIphoneLists().get(modelPosition);
             setCapacity(getResources().getStringArray(R.array.iphone_storage_capacity));
-
+//            userOptionIntent.setPrice(Model.getIphonePrice(model.getBrand(),model.getSize()));
         }
         if (intentValue.equals(getResources().getString(R.string.GOOGLE_PIXEL))) {
             model = Model.getPixelLists().get(modelPosition);
             setCapacity(getResources().getStringArray(R.array.pixel_storage_capacity));
+//            userOptionIntent.setPrice(Model.getPixelPrice(model.getBrand(),model.getSize()));
 
         }
         if (intentValue.equals(getResources().getString(R.string.OPPO))) {
             model = Model.getOppoLists().get(modelPosition);
             setCapacity(getResources().getStringArray(R.array.oppo_storage_capacity));
+//            userOptionIntent.setPrice(Model.getOppoPrice(model.getBrand(),model.getSize()));
 
         }
         if (intentValue.equals(getResources().getString(R.string.SAMSUNG))) {
             model = Model.getSamsungLists().get(modelPosition);
             setCapacity(getResources().getStringArray(R.array.samsung_storage_capacity));
+//            userOptionIntent.setPrice(Model.getSamsungPrice(model.getBrand(),model.getSize()));
+//            Toast.makeText(this,Model.getSamsungPrice(model.getBrand(),model.getSize()),Toast.LENGTH_SHORT).show();
         }
 
 
@@ -93,6 +97,7 @@ public class PhoneSelectionActivity extends AppCompatActivity {
                     Intent intent = new Intent(getBaseContext(), CheckOutActivity.class);
                     userOptionIntent.setSize(model.getSize());
                     userOptionIntent.setColor(model.getColor());
+                    userOptionIntent.setPrice(model.getPrice());
                     intent.putExtra("user_option", userOptionIntent);
                     startActivity(intent);
                 }
@@ -126,17 +131,35 @@ public class PhoneSelectionActivity extends AppCompatActivity {
 
     public boolean Validate() {
         if (colorAutoCompleteTextView.getText().length() > 2) {
-            int radioId = radioGroup.getCheckedRadioButtonId();
-            if (radioId != -1 && radioId > 0) {
-                radioButton = findViewById(radioId);
-                if (radioButton.getText() != null) {
-                    return true;
-                }
-            }
+            return radioButtonSetterNValidate();
         }
         return false;
     }
-
+    public boolean radioButtonSetterNValidate() {
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        if (radioId != -1 && radioId > 0) {
+            radioButton = findViewById(radioId);
+            if (radioButton.getText() != null) {
+                String tempStr = (String) radioButton.getText();
+                int tempInt = Integer.parseInt(tempStr);
+                if (model.getBrand()==MainActivity.SAMSUNG_KEY) {
+                    model.setPrice(Model.getSamsungPrice(model.getModelName(), tempInt));
+                    Toast.makeText(this,Model.getSamsungPrice(model.getModelName(),tempInt)+"$",Toast.LENGTH_SHORT).show();
+                }else if (model.getBrand()==MainActivity.OPPO_KEY) {
+                    model.setPrice(Model.getOppoPrice(model.getModelName(), tempInt));
+                    Toast.makeText(this,Model.getOppoPrice(model.getModelName(),tempInt)+"$",Toast.LENGTH_SHORT).show();
+                }else if (model.getBrand()==MainActivity.IPHONE_KEY) {
+                    model.setPrice(Model.getIphonePrice(model.getModelName(), tempInt));
+                    Toast.makeText(this,Model.getIphonePrice(model.getModelName(),tempInt)+"$",Toast.LENGTH_SHORT).show();
+                } else if (model.getBrand()==MainActivity.GOOGLE_PIXEL_KEY) {
+                    model.setPrice(Model.getPixelPrice(model.getModelName(), tempInt));
+                    Toast.makeText(this,Model.getPixelPrice(model.getModelName(),tempInt)+"$",Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            }
+        }
+            return  false;
+    }
 
     @Override
     protected void onStart() {

@@ -40,7 +40,7 @@
 
             <TextView
                 android:id="@+id/custom_textview_model"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_50sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -50,31 +50,17 @@
                 app:autoSizeMinTextSize="@dimen/_12sdp"
                 app:autoSizeStepGranularity="@dimen/_2sdp"
                 app:autoSizeTextType="uniform"
+                android:layout_marginHorizontal="@dimen/_14sdp"
                 android:textSize="@dimen/_20sdp"
                 />
 
-            <TextView
-                android:id="@+id/custom_textview_capacity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:maxLines="1"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:text="TextView"
-                app:autoSizeMaxTextSize="@dimen/_100sdp"
-                app:autoSizeMinTextSize="@dimen/_12sdp"
-                app:autoSizeStepGranularity="@dimen/_2sdp"
-                app:autoSizeTextType="uniform"
-                android:textSize="@dimen/_20sdp" />
             <TextView
                 android:id="@+id/custom_textview_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
                 android:layout_weight="1"
                 android:text="TextView"
                 app:autoSizeMaxTextSize="@dimen/_100sdp"

@@ -14,7 +14,11 @@ public class Model implements Parcelable {
     private int size;
     private String color;
     private int img;
-    static String IPHONE_KEY ="iPhone", OPPO_KEY ="Oppo", GOOGLE_PIXEL_KEY ="Google Pixel", SAMSUNG_KEY ="Samsung";
+    static String IPHONE_KEY = "iPhone", OPPO_KEY = "Oppo", GOOGLE_PIXEL_KEY = "Google Pixel", SAMSUNG_KEY = "Samsung";
+    static String IPHONE_14 = "14",IPHONE_14PRO="14 Pro",IPHONE_14MAX="14 Max";
+    static String GOOGLE_PIXEL_6="Pixel 6",GOOGLE_PIXEL_6A="Pixel 6a",GOOGLE_PIXEL_6PRO="Pixel 6 Pro";
+    static String OPPO_FIND_X3 = "Find X3", OPPO_FIND_X5 = "Find X5", OPPO_FIND_X5PRO = "Find X5 Pro";
+    static String SAMSUNG_S22 = "S22", SAMSUNG_S22ULTRA = "S22 Ultra ", SAMSUNG_Z = "Z";
 
     public Model() {
     }
@@ -105,45 +109,177 @@ public class Model implements Parcelable {
     public void setColor(String color) {
         this.color = color;
     }
-    public static ArrayList<Model> getIphoneLists(){
+
+    public static ArrayList<Model> getIphoneLists() {
         ArrayList<Model> models = new ArrayList<>();
-        models.add(new Model(Model.IPHONE_KEY, "14 Max", 2600, 128, "White", (R.drawable.iphone)));
-        models.add(new Model(Model.IPHONE_KEY, "14", 2000, 128, "Black", (R.drawable.iphone)));
-        models.add(new Model(Model.IPHONE_KEY, "14 Pro", 2250, 128, "Silver", (R.drawable.iphone)));
-        models.add(new Model(Model.IPHONE_KEY, "14", 2250, 256, "White", (R.drawable.iphone)));
-        models.add(new Model(Model.IPHONE_KEY, "14 Pro", 2250, 256, "Red", (R.drawable.iphone)));
-        models.add(new Model(Model.IPHONE_KEY, "14 Max", 2600, 512, "Gold", (R.drawable.iphone)));
-        return  models;
+        models.add(new Model(Model.IPHONE_KEY, Model.IPHONE_14MAX, getIphonePrice(Model.IPHONE_14MAX,128), 128, "White", (R.drawable.iphone)));
+        models.add(new Model(Model.IPHONE_KEY, Model.IPHONE_14, getIphonePrice(Model.IPHONE_14,128), 128, "Black", (R.drawable.iphone)));
+        models.add(new Model(Model.IPHONE_KEY, Model.IPHONE_14PRO, getIphonePrice(Model.IPHONE_14PRO,128), 128, "Silver", (R.drawable.iphone)));
+        return models;
     }
-    public static ArrayList<Model> getPixelLists(){
+
+    public static ArrayList<Model> getPixelLists() {
         ArrayList<Model> models = new ArrayList<>();
-        models.add(new Model(Model.GOOGLE_PIXEL_KEY, "Pixel 6", 1000, 128, "White", (R.drawable.pixel)));
-        models.add(new Model(Model.GOOGLE_PIXEL_KEY, "Pixel 6a", 1300, 128, "Black", (R.drawable.pixel)));
-        models.add(new Model(Model.GOOGLE_PIXEL_KEY, "Pixel 6", 1000, 128, "Silver", (R.drawable.pixel)));
-        models.add(new Model(Model.GOOGLE_PIXEL_KEY, "Pixel 6a", 1750, 256, "White", (R.drawable.pixel)));
-        models.add(new Model(Model.GOOGLE_PIXEL_KEY, "Pixel 6a", 1750, 256, "Red", (R.drawable.pixel)));
-        models.add(new Model(Model.GOOGLE_PIXEL_KEY, "Pixel 6 Pro", 1700, 512, "Gold", (R.drawable.pixel)));
-        return  models;
+        models.add(new Model(Model.GOOGLE_PIXEL_KEY, Model.GOOGLE_PIXEL_6, getPixelPrice(Model.GOOGLE_PIXEL_6,64), 64, "White", (R.drawable.pixel)));
+        models.add(new Model(Model.GOOGLE_PIXEL_KEY, Model.GOOGLE_PIXEL_6A, getPixelPrice(Model.GOOGLE_PIXEL_6A,64), 64, "Black", (R.drawable.pixel)));
+        models.add(new Model(Model.GOOGLE_PIXEL_KEY, Model.GOOGLE_PIXEL_6PRO, getPixelPrice(Model.GOOGLE_PIXEL_6PRO,64), 64, "Silver", (R.drawable.pixel)));
+        return models;
     }
-    public static ArrayList<Model> getOppoLists(){
+
+    public static ArrayList<Model> getOppoLists() {
         ArrayList<Model> models = new ArrayList<>();
-        models.add(new Model(Model.OPPO_KEY, "Find X3", 1000, 128, "White", (R.drawable.oppo)));
-        models.add(new Model(Model.OPPO_KEY, "Find X5", 1300, 128, "Black", (R.drawable.oppo)));
-        models.add(new Model(Model.OPPO_KEY, "Find X3", 1000, 128, "Silver", (R.drawable.oppo)));
-        models.add(new Model(Model.OPPO_KEY, "Find X5 Pro", 1750, 256, "White", (R.drawable.oppo)));
-        models.add(new Model(Model.OPPO_KEY, "Find X5 Pro", 1750, 256, "Red", (R.drawable.oppo)));
-        models.add(new Model(Model.OPPO_KEY, "Find X5", 1700, 512, "Gold", (R.drawable.oppo)));
-        return  models;
+        models.add(new Model(Model.OPPO_KEY, Model.OPPO_FIND_X3, getOppoPrice(OPPO_FIND_X3,64), 64, "White", (R.drawable.oppo)));
+        models.add(new Model(Model.OPPO_KEY, Model.OPPO_FIND_X5, getOppoPrice(OPPO_FIND_X5,64), 64, "Black", (R.drawable.oppo)));
+        models.add(new Model(Model.OPPO_KEY, Model.OPPO_FIND_X5PRO, getOppoPrice(OPPO_FIND_X5PRO,64), 64, "White", (R.drawable.oppo)));
+        return models;
     }
-    public static ArrayList<Model> getSamsungLists(){
+    public static ArrayList<Model> getSamsungLists() {
         ArrayList<Model> models = new ArrayList<>();
-        models.add(new Model(Model.SAMSUNG_KEY, "S22", 1000, 128, "White", (R.drawable.samsung)));
-        models.add(new Model(Model.SAMSUNG_KEY, "S22 Ultra", 1300, 128, "Black", (R.drawable.samsung)));
-        models.add(new Model(Model.SAMSUNG_KEY, "S22", 1000, 128, "Silver", (R.drawable.samsung)));
-        models.add(new Model(Model.SAMSUNG_KEY, "Z", 1750, 256, "White", (R.drawable.samsung)));
-        models.add(new Model(Model.SAMSUNG_KEY, "Z", 1750, 256, "Red", (R.drawable.samsung)));
-        models.add(new Model(Model.SAMSUNG_KEY, "S22 Ultra", 1700, 512, "Gold", (R.drawable.samsung)));
-        return  models;
+        models.add(new Model(Model.SAMSUNG_KEY, Model.SAMSUNG_S22, getSamsungPrice(SAMSUNG_S22,64), 64, "White", (R.drawable.oppo)));
+        models.add(new Model(Model.SAMSUNG_KEY, Model.SAMSUNG_S22ULTRA, getSamsungPrice(SAMSUNG_S22ULTRA,64), 64, "Black", (R.drawable.oppo)));
+        models.add(new Model(Model.SAMSUNG_KEY, Model.SAMSUNG_Z, getSamsungPrice(SAMSUNG_Z,64), 64, "White", (R.drawable.oppo)));
+        return models;
+    }
+
+    public static int getIphonePrice(String model, int size) {
+        if (model == IPHONE_14) {
+            if (size == 64) {
+                return 2000;
+            } else if (size == 128) {
+                return 2200;
+            } else if (size == 256) {
+                return 2400;
+            } else if (size == 512) {
+                return 2550;
+            }
+        } else if (model == IPHONE_14PRO) {
+            if (size == 64) {
+                return 2300;
+            } else if (size == 128) {
+                return 2500;
+            } else if (size == 256) {
+                return 2700;
+            } else if (size == 512) {
+                return 2850;
+            }
+        }else if (model == IPHONE_14MAX) {
+            if (size == 64) {
+                return 2400;
+            } else if (size == 128) {
+                return 2600;
+            } else if (size == 256) {
+                return 2800;
+            } else if (size == 512) {
+                return 2950;
+            }
+        }
+        return 0;
+    }
+
+    public static int getOppoPrice(String model, int size) {
+        if (model == OPPO_FIND_X3) {
+            if (size == 64) {
+                return 1000;
+            } else if (size == 128) {
+                return 1100;
+            } else if (size == 256) {
+                return 1200;
+            } else if (size == 512) {
+                return 1350;
+            }
+        } else if (model == OPPO_FIND_X5) {
+            if (size == 64) {
+                return 1200;
+            } else if (size == 128) {
+                return 1300;
+            } else if (size == 256) {
+                return 1400;
+            } else if (size == 512) {
+                return 1550;
+            }         } else if (model == OPPO_FIND_X5PRO) {
+            if (size == 64) {
+                return 1250;
+            } else if (size == 128) {
+                return 1350;
+            } else if (size == 256) {
+                return 1450;
+            } else if (size == 512) {
+                return 1590;
+            }
+        }
+        return 0;
+    }
+
+    public static int getSamsungPrice(String model, int size) {
+        if (model == SAMSUNG_S22) {
+            if (size == 64) {
+                return 1000;
+            } else if (size == 128) {
+                return 1100;
+            } else if (size == 256) {
+                return 1200;
+            } else if (size == 512) {
+                return 1350;
+            }
+        } else if (model == SAMSUNG_S22ULTRA) {
+            if (size == 64) {
+                return 1200;
+            } else if (size == 128) {
+                return 1200;
+            } else if (size == 256) {
+                return 1300;
+            } else if (size == 512) {
+                return 1450;
+            }
+        } else if (model == SAMSUNG_Z) {
+            if (size == 64) {
+                return 1330;
+            } else if (size == 128) {
+                return 1430;
+            } else if (size == 256) {
+                return 1530;
+            } else if (size == 512) {
+                return 1630;
+            }
+        }
+
+        return 0;
+    }
+
+    public static int getPixelPrice(String model, int size) {
+        if (model == "Pixel 6") {
+            if (size == 64) {
+                return 1000;
+            } else if (size == 128) {
+                return 1100;
+            } else if (size == 256) {
+                return 1200;
+            } else if (size == 512) {
+                return 1350;
+            }
+        } else if (model == "Pixel 6 Pro") {
+            if (size == 64) {
+                return 1200;
+            } else if (size == 128) {
+                return 1200;
+            } else if (size == 256) {
+                return 1300;
+            } else if (size == 512) {
+                return 1450;
+            }
+        } else if (model == "Pixel 6a") {
+            if (size == 64) {
+                return 1330;
+            } else if (size == 128) {
+                return 1430;
+            } else if (size == 256) {
+                return 1530;
+            } else if (size == 512) {
+                return 1630;
+            }
+        }
+
+        return 0;
     }
 
     @Override
