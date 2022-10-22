@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Assignment2</string>
+    <string name="GOOGLE_PIXEL">Google Pixel</string>
+    <string name="IPHONE">iPhone</string>
+    <string name="OPPO">Oppo</string>
+    <string name="SAMSUNG">Samsung</string>
+
+
+    <string name="iPhone_14_128_price">2000</string>
+    <string name="iPhone_14_256_price">2200</string>
+    <string name="iPhone_14_512_price">2400</string>
+
+
+    <string name="iPhone_14Pro_128_price">2200</string>
+    <string name="iPhone_14Pro_256_price">2400</string>
+    <string name="iPhone_14Pro_512_price">2600</string>
+
+    <string name="iPhone_14ProMax_128_price">2400</string>
+    <string name="iPhone_14ProMax_256_price">2600</string>
+    <string name="iPhone_14ProMax_512_price">2800</string>
+
+    <string-array name="colors">
+        <item>White</item>
+        <item>Black</item>
+        <item>Red</item>
+        <item>Silver</item>
+        <item>Gold</item>
+    </string-array>
+
+    <string-array name="cards">
+        <item>Visa</item>
+        <item>Master Card</item>
+    </string-array>
+
+    <string-array name="pixel_storage_capacity">
+        <item>64</item>
+        <item>128</item>
+        <item>256</item>
+    </string-array>
+    <string-array name="oppo_storage_capacity">
+        <item>64</item>
+        <item>128</item>
+        <item>256</item>
+    </string-array>
+    <string-array name="samsung_storage_capacity">
+        <item>64</item>
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+    </string-array>
+    <string-array name="iphone_storage_capacity">
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+    </string-array>
+</resources>

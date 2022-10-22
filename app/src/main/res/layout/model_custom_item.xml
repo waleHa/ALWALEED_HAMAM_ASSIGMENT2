@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:cardBackgroundColor="#F0F0FA"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/custom_imageview_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                tools:srcCompat="@android:drawable/btn_star_big_on" />
+
+
+            <TextView
+                android:id="@+id/custom_textview_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:text="TextView"
+                app:autoSizeMaxTextSize="@dimen/_100sdp"
+                app:autoSizeMinTextSize="@dimen/_12sdp"
+                app:autoSizeStepGranularity="@dimen/_2sdp"
+                app:autoSizeTextType="uniform"
+                android:textSize="@dimen/_20sdp"
+                />
+
+            <TextView
+                android:id="@+id/custom_textview_capacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:text="TextView"
+                app:autoSizeMaxTextSize="@dimen/_100sdp"
+                app:autoSizeMinTextSize="@dimen/_12sdp"
+                app:autoSizeStepGranularity="@dimen/_2sdp"
+                app:autoSizeTextType="uniform"
+                android:textSize="@dimen/_20sdp" />
+            <TextView
+                android:id="@+id/custom_textview_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_weight="1"
+                android:text="TextView"
+                app:autoSizeMaxTextSize="@dimen/_100sdp"
+                app:autoSizeMinTextSize="@dimen/_12sdp"
+                app:autoSizeStepGranularity="@dimen/_2sdp"
+                app:autoSizeTextType="uniform"
+                android:textSize="@dimen/_20sdp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

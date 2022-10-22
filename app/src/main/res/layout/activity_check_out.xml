@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#52CAA6A6"
+    android:orientation="vertical"
+    tools:context=".CheckOutActivity">
+
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="center"
+        android:text="User Information"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_text_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/edit_text_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Address"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/edit_text_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="City"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/edit_text_postal_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Postal Code"
+        android:inputType="textPostalAddress"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/edit_text_telephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Telephone"
+        android:inputType="textShortMessage|textPersonName|text|textEmailAddress|phone"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/text_view_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="center"
+        android:text="Payment Information"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_input_layout_color"
+        android:layout_margin="@dimen/_5sdp"
+        android:hint="Card Type"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_text_view_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="none"
+            tools:ignore="TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/edit_text_card_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="credit card number"
+        android:inputType="number|textPersonName"
+        android:minHeight="48dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_text_Expiration"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Expiration (YYMM)"
+            android:inputType="date|textLongMessage|datetime|textPersonName"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/edit_text_CVV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="CVV/CVC Number"
+            android:inputType="textShortMessage|numberSigned|numberPassword"
+            android:minHeight="48dp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/next_view_button"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_width="wrap_content"
+        android:text="Next"
+        style="?attr/materialButtonOutlinedStyle"
+        />
+
+    <TextView
+        android:id="@+id/text_view_validation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="@dimen/_10sdp"
+        android:textColor="#FF1111"
+        android:maxLines="2"
+        app:autoSizeMaxTextSize="@dimen/_100sdp"
+        app:autoSizeMinTextSize="@dimen/_8sdp"
+        app:autoSizeStepGranularity="@dimen/_2sdp"
+        app:autoSizeTextType="uniform"
+         />
+</LinearLayout>

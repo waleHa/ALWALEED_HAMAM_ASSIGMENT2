@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4292A6A6"
+
+    android:orientation="vertical"
+    tools:context=".ConfirmationActivity">
+
+    <TextView
+        android:id="@+id/text_view_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#5555ff"
+        android:padding="@dimen/_15sdp"
+        android:gravity="center"
+        android:text="Your order successfully completed!"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#5555ff"
+        android:padding="@dimen/_15sdp"
+        android:gravity="center"
+        android:text="Order Details:"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/text_view_customer_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="customer details"
+        android:padding="@dimen/_15sdp"
+        android:textColor="#555555"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#5555ff"
+        android:padding="@dimen/_15sdp"
+        android:gravity="center"
+        android:text="Order Details:"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/text_view_phone_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="phone details"
+        android:padding="@dimen/_15sdp"
+        android:textColor="#555555"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#5555ff"
+        android:padding="@dimen/_15sdp"
+        android:gravity="center"
+        android:text="Order Details:"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/text_view_payment_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="payment details"
+        android:padding="@dimen/_15sdp"
+        android:textColor="#555555"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold" />
+</LinearLayout>

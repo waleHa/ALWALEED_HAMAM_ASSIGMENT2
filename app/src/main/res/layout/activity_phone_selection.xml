@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/phone_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PhoneSelectionActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:srcCompat="@drawable/red_wireless" />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/model_layout"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="#F0F0FA"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        >
+
+
+        <LinearLayout
+            android:orientation="vertical"
+        android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_view_brand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:text="Brand:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_view_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:text="Model Name:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/text_view_color"
+                android:layout_width="match_parent"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                android:text="Phone Color:" />
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/text_input_layout_color"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:hint="Color"
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            >
+
+                            <AutoCompleteTextView
+                                android:id="@+id/auto_complete_text_view_color"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:inputType="none"
+                                tools:ignore="TouchTargetSizeCheck" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/text_view_storage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:text="Storage Capacity:" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:id="@+id/radio_group"
+                >
+
+                <RadioButton
+                    android:id="@+id/size_64"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="64 GB"
+
+                    android:visibility="gone" />
+
+                <RadioButton
+                    android:id="@+id/size_128"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="128 GB"
+
+                    android:visibility="gone" />
+
+                <RadioButton
+                    android:id="@+id/size_256"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="256 GB"
+
+                    android:visibility="gone" />
+
+                <RadioButton
+                    android:id="@+id/size_512"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="512 GB"
+
+                    android:visibility="gone" />
+            </RadioGroup>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardCornerRadius="5dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginStart="@dimen/_20sdp"-->
+<!--        android:layout_marginEnd="@dimen/_20sdp"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        >-->
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:id="@+id/view_button"-->
+<!--            android:textStyle="bold"-->
+<!--            android:padding="6dp"-->
+<!--            android:textSize="21sp"-->
+<!--            />-->
+<!--    </com.google.android.material.card.MaterialCardView>-->
+    <Button
+        android:id="@+id/next_view_button"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:text="Next"
+        style="?attr/materialButtonOutlinedStyle"
+        />
+
+</LinearLayout>
+
+
+
+<!--<com.google.android.material.textfield.TextInputLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:id="@+id/text_input_layout_model"-->
+<!--android:layout_margin="@dimen/_5sdp"-->
+<!--android:hint="Model"-->
+
+<!--style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+<!--    >-->
+
+<!--<AutoCompleteTextView-->
+<!--    android:id="@+id/auto_complete_text_view_model"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_weight="1"-->
+<!--    android:inputType="none"-->
+<!--    tools:ignore="TouchTargetSizeCheck" />-->
+<!--</com.google.android.material.textfield.TextInputLayout>-->
