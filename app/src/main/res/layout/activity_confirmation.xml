@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#4292A6A6"
     android:orientation="vertical"
-    tools:context=".ConfirmationActivity">
+    tools:context=".UI.Confirmation.ConfirmationActivity">
 
     <TextView
         android:id="@+id/text_view_payment"
@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="customer details"
+        tools:hint="customer details"
         android:textColor="#555555"
         android:textSize="@dimen/_16sdp"
         android:padding="@dimen/_5sdp"
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="phone details"
+        tools:hint="phone details"
         android:textColor="#555555"
         android:padding="@dimen/_5sdp"
         android:textSize="@dimen/_16sdp"
@@ -74,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="payment details"
+        tools:hint="payment details"
         android:padding="@dimen/_5sdp"
         android:textColor="#555555"
         android:textSize="@dimen/_16sdp"

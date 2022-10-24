@@ -4,7 +4,9 @@ plugins {
 
 android {
     compileSdk 32
-
+    buildFeatures {
+        viewBinding true
+    }
     defaultConfig {
         applicationId "com.wa7a.assignment2"
         minSdk 21

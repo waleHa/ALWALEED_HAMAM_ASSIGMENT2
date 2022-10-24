@@ -1,4 +1,4 @@
-package com.wa7a.assignment2;
+package com.wa7a.assignment2.UI.Middle;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.wa7a.assignment2.Model.Model;
+import com.wa7a.assignment2.R;
 
 import java.util.ArrayList;
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#52C4F696"
-    tools:context=".MiddleActivity">
+    tools:context=".UI.Middle.MiddleActivity">
 
     <TextView
         android:id="@+id/text_view_brand"
@@ -16,7 +16,7 @@
         android:padding="@dimen/_15sdp"
         android:textSize="@dimen/_24sdp"
         android:gravity="center"
-        android:text="text_view_brand" />
+        tools:text="text_view_brand" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_view_middle"

@@ -1,7 +1,9 @@
 package com.wa7a.assignment2.Model;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.Toast;
 
 import com.wa7a.assignment2.R;
 
@@ -14,11 +16,20 @@ public class Model implements Parcelable {
     private int size;
     private String color;
     private int img;
-    static String IPHONE_KEY = "iPhone", OPPO_KEY = "Oppo", GOOGLE_PIXEL_KEY = "Google Pixel", SAMSUNG_KEY = "Samsung";
-    static String IPHONE_14 = "14",IPHONE_14PRO="14 Pro",IPHONE_14MAX="14 Max";
-    static String GOOGLE_PIXEL_6="Pixel 6",GOOGLE_PIXEL_6A="Pixel 6a",GOOGLE_PIXEL_6PRO="Pixel 6 Pro";
-    static String OPPO_FIND_X3 = "Find X3", OPPO_FIND_X5 = "Find X5", OPPO_FIND_X5PRO = "Find X5 Pro";
-    static String SAMSUNG_S22 = "S22", SAMSUNG_S22ULTRA = "S22 Ultra ", SAMSUNG_Z = "Z";
+    public static final String IPHONE_KEY = "iPhone";
+    public static final String OPPO_KEY = "Oppo";
+    public static final String GOOGLE_PIXEL_KEY = "Google Pixel";
+    public static final String SAMSUNG_KEY = "Samsung";
+    public static final String IPHONE_14 = "14";
+    public static final String IPHONE_14PRO = "14 Pro";
+    public static final String IPHONE_14MAX = "14 Max";
+    public static final String GOOGLE_PIXEL_6 = "Pixel 6";
+    public static final String GOOGLE_PIXEL_6A = "Pixel 6a";
+    public static final String GOOGLE_PIXEL_6PRO = "Pixel 6 Pro";
+    public static final String OPPO_FIND_X3 = "Find X3", OPPO_FIND_X5 = "Find X5";
+    public static final String OPPO_FIND_X5PRO = "Find X5 Pro";
+    public static final String SAMSUNG_S22 = "S22";
+    public static final String SAMSUNG_S22ULTRA = "S22 Ultra ", SAMSUNG_Z = "Z";
 
     public Model() {
     }
@@ -32,7 +43,7 @@ public class Model implements Parcelable {
         this.img = img;
     }
 
-    public Model(String brand, String modelName, int price, int size) {
+    public Model(String brand, String modelName, int price) {
         this.brand = brand;
         this.modelName = modelName;
         this.price = price;
@@ -110,175 +121,117 @@ public class Model implements Parcelable {
         this.color = color;
     }
 
+
     public static ArrayList<Model> getIphoneLists() {
         ArrayList<Model> models = new ArrayList<>();
-        models.add(new Model(Model.IPHONE_KEY, Model.IPHONE_14MAX, getIphonePrice(Model.IPHONE_14MAX,128), 128, "White", (R.drawable.iphone)));
-        models.add(new Model(Model.IPHONE_KEY, Model.IPHONE_14, getIphonePrice(Model.IPHONE_14,128), 128, "Black", (R.drawable.iphone)));
-        models.add(new Model(Model.IPHONE_KEY, Model.IPHONE_14PRO, getIphonePrice(Model.IPHONE_14PRO,128), 128, "Silver", (R.drawable.iphone)));
+        int photo = (R.drawable.iphone);
+        String brand = Model.IPHONE_KEY;
+        int size = 128;
+        int price1 = getPrice(brand, Model.IPHONE_14MAX, size);
+        int price2 = getPrice(brand, Model.IPHONE_14, size);
+        int price3 = getPrice(brand, Model.IPHONE_14PRO, size);
+        models.add(new Model(brand, Model.IPHONE_14MAX, price1, size, "", photo));
+        models.add(new Model(brand, Model.IPHONE_14, price2, size, "", photo));
+        models.add(new Model(brand, Model.IPHONE_14PRO, price3, size, "", photo));
         return models;
     }
 
     public static ArrayList<Model> getPixelLists() {
         ArrayList<Model> models = new ArrayList<>();
-        models.add(new Model(Model.GOOGLE_PIXEL_KEY, Model.GOOGLE_PIXEL_6, getPixelPrice(Model.GOOGLE_PIXEL_6,64), 64, "White", (R.drawable.pixel)));
-        models.add(new Model(Model.GOOGLE_PIXEL_KEY, Model.GOOGLE_PIXEL_6A, getPixelPrice(Model.GOOGLE_PIXEL_6A,64), 64, "Black", (R.drawable.pixel)));
-        models.add(new Model(Model.GOOGLE_PIXEL_KEY, Model.GOOGLE_PIXEL_6PRO, getPixelPrice(Model.GOOGLE_PIXEL_6PRO,64), 64, "Silver", (R.drawable.pixel)));
+        int photo = (R.drawable.pixel);
+        String brand = Model.GOOGLE_PIXEL_KEY;
+        int size = 64;
+        int price1 = getPrice(brand, Model.GOOGLE_PIXEL_6, size);
+        models.add(new Model(brand, Model.GOOGLE_PIXEL_6, price1, size, "", photo));
+        int price2 = getPrice(brand, Model.GOOGLE_PIXEL_6A, size);
+        models.add(new Model(brand, Model.GOOGLE_PIXEL_6A, price2, size, "", photo));
+        int price3 = getPrice(brand, Model.GOOGLE_PIXEL_6PRO, size);
+        models.add(new Model(brand, Model.GOOGLE_PIXEL_6PRO, price3, size, "", photo));
         return models;
     }
+
 
     public static ArrayList<Model> getOppoLists() {
         ArrayList<Model> models = new ArrayList<>();
-        models.add(new Model(Model.OPPO_KEY, Model.OPPO_FIND_X3, getOppoPrice(OPPO_FIND_X3,64), 64, "White", (R.drawable.oppo)));
-        models.add(new Model(Model.OPPO_KEY, Model.OPPO_FIND_X5, getOppoPrice(OPPO_FIND_X5,64), 64, "Black", (R.drawable.oppo)));
-        models.add(new Model(Model.OPPO_KEY, Model.OPPO_FIND_X5PRO, getOppoPrice(OPPO_FIND_X5PRO,64), 64, "White", (R.drawable.oppo)));
+        int photo = (R.drawable.oppo);
+        String brand = Model.OPPO_KEY;
+        int size = 64;
+        int price1 = getPrice(brand, Model.OPPO_FIND_X3, size);
+        models.add(new Model(brand, Model.OPPO_FIND_X3, price1, size, "", photo));
+
+        int price2 = getPrice(brand, Model.OPPO_FIND_X5, size);
+        models.add(new Model(brand, Model.OPPO_FIND_X5, price2, size, "", photo));
+
+        int price3 = getPrice(brand, Model.OPPO_FIND_X5PRO, size);
+        models.add(new Model(brand, Model.OPPO_FIND_X5PRO, price3, size, "", photo));
         return models;
     }
+
     public static ArrayList<Model> getSamsungLists() {
         ArrayList<Model> models = new ArrayList<>();
-        models.add(new Model(Model.SAMSUNG_KEY, Model.SAMSUNG_S22, getSamsungPrice(SAMSUNG_S22,64), 64, "White", (R.drawable.oppo)));
-        models.add(new Model(Model.SAMSUNG_KEY, Model.SAMSUNG_S22ULTRA, getSamsungPrice(SAMSUNG_S22ULTRA,64), 64, "Black", (R.drawable.oppo)));
-        models.add(new Model(Model.SAMSUNG_KEY, Model.SAMSUNG_Z, getSamsungPrice(SAMSUNG_Z,64), 64, "White", (R.drawable.oppo)));
+        int photo = (R.drawable.samsung);
+        String brand = Model.SAMSUNG_KEY;
+        int size = 64;
+        int price1 = getPrice(brand, Model.SAMSUNG_S22, size);
+        models.add(new Model(brand, Model.SAMSUNG_S22, price1, size, "", photo));
+        int price2 = getPrice(brand, Model.SAMSUNG_S22ULTRA, size);
+        models.add(new Model(brand, Model.SAMSUNG_S22ULTRA, price2, size, "", photo));
+        int price3 = getPrice(brand, Model.SAMSUNG_Z, size);
+        models.add(new Model(brand, Model.SAMSUNG_Z, price3, size, "", photo));
         return models;
     }
 
-    public static int getIphonePrice(String model, int size) {
-        if (model == IPHONE_14) {
-            if (size == 64) {
-                return 2000;
-            } else if (size == 128) {
-                return 2200;
-            } else if (size == 256) {
-                return 2400;
-            } else if (size == 512) {
-                return 2550;
+    public static int getPrice(String brand, String model, int size) {
+        if (brand == IPHONE_KEY) {
+            if (model == IPHONE_14) {
+                return PriceSetter(size, 2000, 2200, 2400, 2550);
+            } else if (model == IPHONE_14PRO) {
+                return PriceSetter(size, 2300, 2500, 2700, 2850);
+            } else if (model == IPHONE_14MAX) {
+                return PriceSetter(size, 2400, 2600, 2800, 2950);
             }
-        } else if (model == IPHONE_14PRO) {
-            if (size == 64) {
-                return 2300;
-            } else if (size == 128) {
-                return 2500;
-            } else if (size == 256) {
-                return 2700;
-            } else if (size == 512) {
-                return 2850;
+        } else if (brand == GOOGLE_PIXEL_KEY) {
+            if (model == GOOGLE_PIXEL_6) {
+                return PriceSetter(size, 1000, 1100, 1200, 1350);
+            } else if (model == GOOGLE_PIXEL_6PRO) {
+                return PriceSetter(size, 1100, 1200, 1300, 1350);
+            } else if (model == GOOGLE_PIXEL_6A) {
+                return PriceSetter(size, 1330, 1430, 1530, 1630);
             }
-        }else if (model == IPHONE_14MAX) {
-            if (size == 64) {
-                return 2400;
-            } else if (size == 128) {
-                return 2600;
-            } else if (size == 256) {
-                return 2800;
-            } else if (size == 512) {
-                return 2950;
+        } else if (brand == OPPO_KEY) {
+            if (model == OPPO_FIND_X3) {
+                return PriceSetter(size, 1000, 1100, 1200, 1350);
+            } else if (model == OPPO_FIND_X5) {
+                return PriceSetter(size, 1200, 1300, 1400, 1550);
+
+            } else if (model == OPPO_FIND_X5PRO) {
+                return PriceSetter(size, 1250, 1350, 1450, 1590);
+            }
+        } else if (brand == SAMSUNG_KEY) {
+            if (model == SAMSUNG_S22) {
+                return PriceSetter(size, 1000, 1100, 1200, 1350);
+            } else if (model == SAMSUNG_S22ULTRA) {
+                return PriceSetter(size, 1110, 1200, 1330, 1470);
+            } else if (model == SAMSUNG_Z) {
+                return PriceSetter(size, 1330, 1430, 1530, 1630);
             }
         }
-        return 0;
+        return -1;
     }
 
-    public static int getOppoPrice(String model, int size) {
-        if (model == OPPO_FIND_X3) {
-            if (size == 64) {
-                return 1000;
-            } else if (size == 128) {
-                return 1100;
-            } else if (size == 256) {
-                return 1200;
-            } else if (size == 512) {
-                return 1350;
-            }
-        } else if (model == OPPO_FIND_X5) {
-            if (size == 64) {
-                return 1200;
-            } else if (size == 128) {
-                return 1300;
-            } else if (size == 256) {
-                return 1400;
-            } else if (size == 512) {
-                return 1550;
-            }         } else if (model == OPPO_FIND_X5PRO) {
-            if (size == 64) {
-                return 1250;
-            } else if (size == 128) {
-                return 1350;
-            } else if (size == 256) {
-                return 1450;
-            } else if (size == 512) {
-                return 1590;
-            }
+    public static int PriceSetter(int size, int price1, int price2, int price3, int price4) {
+        if (price1 != 0 && size == 64) {
+            return price1;
         }
-        return 0;
-    }
-
-    public static int getSamsungPrice(String model, int size) {
-        if (model == SAMSUNG_S22) {
-            if (size == 64) {
-                return 1000;
-            } else if (size == 128) {
-                return 1100;
-            } else if (size == 256) {
-                return 1200;
-            } else if (size == 512) {
-                return 1350;
-            }
-        } else if (model == SAMSUNG_S22ULTRA) {
-            if (size == 64) {
-                return 1200;
-            } else if (size == 128) {
-                return 1200;
-            } else if (size == 256) {
-                return 1300;
-            } else if (size == 512) {
-                return 1450;
-            }
-        } else if (model == SAMSUNG_Z) {
-            if (size == 64) {
-                return 1330;
-            } else if (size == 128) {
-                return 1430;
-            } else if (size == 256) {
-                return 1530;
-            } else if (size == 512) {
-                return 1630;
-            }
+        if (price2 != 0 && size == 128) {
+            return price2;
         }
-
-        return 0;
-    }
-
-    public static int getPixelPrice(String model, int size) {
-        if (model == "Pixel 6") {
-            if (size == 64) {
-                return 1000;
-            } else if (size == 128) {
-                return 1100;
-            } else if (size == 256) {
-                return 1200;
-            } else if (size == 512) {
-                return 1350;
-            }
-        } else if (model == "Pixel 6 Pro") {
-            if (size == 64) {
-                return 1200;
-            } else if (size == 128) {
-                return 1200;
-            } else if (size == 256) {
-                return 1300;
-            } else if (size == 512) {
-                return 1450;
-            }
-        } else if (model == "Pixel 6a") {
-            if (size == 64) {
-                return 1330;
-            } else if (size == 128) {
-                return 1430;
-            } else if (size == 256) {
-                return 1530;
-            } else if (size == 512) {
-                return 1630;
-            }
+        if (price3 != 0 && size == 256) {
+            return price3;
         }
-
+        if (price4 != 0 && size == 512) {
+            return price4;
+        }
         return 0;
     }
 

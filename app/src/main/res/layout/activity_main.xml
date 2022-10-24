@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/_20sdp"
-    tools:context=".MainActivity">
+    tools:context=".UI.Main.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image_view"
         android:layout_width="@dimen/_110sdp"
         android:layout_height="@dimen/_110sdp"
         android:layout_gravity="center"

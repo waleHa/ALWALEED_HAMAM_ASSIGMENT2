@@ -14,19 +14,19 @@
         android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".MiddleActivity"
+            android:name=".UI.Middle.MiddleActivity"
             android:exported="false" />
         <activity
-            android:name=".ConfirmationActivity"
+            android:name=".UI.Confirmation.ConfirmationActivity"
             android:exported="false" />
         <activity
-            android:name=".CheckOutActivity"
+            android:name=".UI.Checkout.CheckOutActivity"
             android:exported="false" />
         <activity
-            android:name=".PhoneSelectionActivity"
+            android:name=".UI.PhoneSelection.PhoneSelectionActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".UI.Main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
