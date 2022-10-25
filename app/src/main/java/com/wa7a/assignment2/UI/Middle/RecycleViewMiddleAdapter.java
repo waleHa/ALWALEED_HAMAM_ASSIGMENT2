@@ -33,9 +33,7 @@ public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMi
     @Override
     public void onBindViewHolder(@NonNull ModelViewHolder holder, int position) {
         Model model = models.get(position);
-        holder.imageView.setImageResource(model.getImg());
-        holder.textViewName.setText(model.getModelName());
-        holder.textViewPrice.setText(model.getPrice()+ " $");
+        holder.ViewSetter(model.getImg(),model.getModelName(),model.getPrice());
     }
 
     @Override
@@ -56,6 +54,12 @@ public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMi
             textViewPrice = itemBinding.customTextviewPrice;//**binding
             this.onModelListener = onModelListener;//**OnModelListener
             itemView.setOnClickListener(this);
+        }
+
+        public void ViewSetter(int img, String  name, int price){
+            this.imageView.setImageResource( img);
+            this.textViewName.setText(name);
+            this.textViewPrice.setText(price+ " $");
         }
 
         @Override
