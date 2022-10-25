@@ -10,23 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.wa7a.assignment2.Model.Model;
 import com.wa7a.assignment2.R;
+import com.wa7a.assignment2.databinding.ModelCustomItemBinding;
 
 import java.util.ArrayList;
 
 public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMiddleAdapter.ModelViewHolder>{
     ArrayList<Model> models;
-    OnModelListener onModelListener;
+    OnModelListener onModelListener;//**OnModelListener
     public RecycleViewMiddleAdapter(ArrayList<Model> models, OnModelListener onModelListener) {
         this.models = models;
-        this.onModelListener = onModelListener;
+        this.onModelListener = onModelListener;//**OnModelListener
     }
 
     @NonNull
     @Override
     public ModelViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.model_custom_item,parent,false);
-        ModelViewHolder viewHolder = new ModelViewHolder(view,onModelListener);
-        return viewHolder;
+        ModelCustomItemBinding itemBinding = ModelCustomItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false); //**binding
+        return new ModelViewHolder(itemBinding,onModelListener);//**OnModelListener //**binding
 
     }
 
@@ -46,13 +46,15 @@ public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMi
     class ModelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView textViewName, textViewPrice;
         ImageView imageView;
-        OnModelListener onModelListener;
-        public ModelViewHolder(@NonNull View itemView, OnModelListener onModelListener) {
-            super(itemView);
-            textViewName = itemView.findViewById(R.id.custom_textview_model);
-            imageView = itemView.findViewById(R.id.custom_imageview_img);
-            textViewPrice = itemView.findViewById(R.id.custom_textview_price);
-            this.onModelListener = onModelListener;
+        OnModelListener onModelListener;//**OnModelListener
+
+
+        public ModelViewHolder(ModelCustomItemBinding itemBinding,OnModelListener onModelListener) {//**OnModelListener //**binding
+            super(itemBinding.getRoot());//**binding
+            textViewName = itemBinding.customTextviewModel;//**binding
+            imageView = itemBinding.customImageviewImg;//**binding
+            textViewPrice = itemBinding.customTextviewPrice;//**binding
+            this.onModelListener = onModelListener;//**OnModelListener
             itemView.setOnClickListener(this);
         }
 
@@ -61,7 +63,7 @@ public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMi
             onModelListener.onModelClick(getAdapterPosition());
         }
     }
-    public interface OnModelListener{
+    public interface OnModelListener{//**OnModelListener
         void onModelClick(int position);
     }
 }
