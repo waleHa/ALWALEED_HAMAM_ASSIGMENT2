@@ -5,7 +5,7 @@
     android:title=""
     app:showAsAction="ifRoom"
     />
-    <item android:id="@+id/iPhone_item"
+    <item android:id="@+id/iphone_item"
         android:icon="@drawable/add_icon"
         android:title="iPhone"
         app:showAsAction="never"

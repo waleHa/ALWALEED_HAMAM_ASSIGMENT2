@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#52C4F696"
-    tools:context=".UI.Middle.MiddleActivity">
+    tools:context=".ui.middle.MiddleActivity">
 
     <TextView
         android:id="@+id/text_view_brand"
@@ -28,7 +28,7 @@
 
 </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
-
+<!--    </layout>-->
     <!--<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"-->
     <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
     <!--    xmlns:tools="http://schemas.android.com/tools"-->

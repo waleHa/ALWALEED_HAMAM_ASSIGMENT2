@@ -1,28 +1,32 @@
-package com.wa7a.assignment2.UI.Main;
-
-import static com.wa7a.assignment2.Model.Model.OPPO_KEY;
+package com.wa7a.assignment2.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingComponent;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.wa7a.assignment2.Model.Model;
+import com.wa7a.assignment2.constants.Constant;
 import com.wa7a.assignment2.R;
-import com.wa7a.assignment2.UI.Middle.MiddleActivity;
+import com.wa7a.assignment2.databinding.ActivityMainBinding;
+import com.wa7a.assignment2.databinding.ActivityMiddleBinding;
+import com.wa7a.assignment2.ui.middle.MiddleActivity;
 
 public class MainActivity extends AppCompatActivity {
     Intent intent;
-
+//    ActivityMainBinding mainBinding;
+    ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
 
     @Override
@@ -36,21 +40,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         intent = new Intent(getBaseContext(), MiddleActivity.class);
         switch (item.getItemId()) {
-            case R.id.iPhone_item:
-                return optionSetter(Model.IPHONE_KEY);
+            case R.id.iphone_item:
+                return optionSetter(Constant.IPHONE_TITLE);
             case R.id.oppo_item:
-                return optionSetter(Model.OPPO_KEY);
+                return optionSetter(Constant.OPPO_TITLE);
             case R.id.pixel_item:
-                return optionSetter(Model.GOOGLE_PIXEL_KEY);
+                return optionSetter(Constant.GOOGLE_PIXEL_TITLE);
             case R.id.samsung_item:
-                return optionSetter(Model.SAMSUNG_KEY);
+                return optionSetter(Constant.SAMSUNG_TITLE);
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public boolean optionSetter(String model) {
-        intent.putExtra("phone", model);
+    public boolean optionSetter(String str) {
+        intent.putExtra("phone", str);
         startActivity(intent);
         return true;
     }

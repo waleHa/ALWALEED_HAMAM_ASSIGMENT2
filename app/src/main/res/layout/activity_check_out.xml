@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#52CAA6A6"
     android:orientation="vertical"
-    tools:context=".UI.Checkout.CheckOutActivity">
+    tools:context=".ui.checkout.CheckOutActivity">
 
     <TextView
         android:id="@+id/text_view_name"

@@ -1,4 +1,4 @@
-package com.wa7a.assignment2.UI.Checkout;
+package com.wa7a.assignment2.ui.checkout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,15 +13,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.wa7a.assignment2.Model.Model;
-import com.wa7a.assignment2.Model.PaymentInfo;
-import com.wa7a.assignment2.Model.UserInfo;
+import com.wa7a.assignment2.model.Phone;
+import com.wa7a.assignment2.model.PaymentInfo;
+import com.wa7a.assignment2.model.UserInfo;
 import com.wa7a.assignment2.R;
-import com.wa7a.assignment2.UI.Confirmation.ConfirmationActivity;
+import com.wa7a.assignment2.ui.confirmation.ConfirmationActivity;
 import com.wa7a.assignment2.databinding.ActivityCheckOutBinding;
 
 public class CheckOutActivity extends AppCompatActivity {
-    private Model userOptionIntent;
+    private Phone userOptionIntent;
     ActivityCheckOutBinding binding;
     private UserInfo userInfoIntent;
     String cardType;
@@ -78,7 +78,7 @@ public class CheckOutActivity extends AppCompatActivity {
         textViewValidation = binding.textViewValidation;
         cardArrayAdapter = new ArrayAdapter<String>(this, R.layout.text_dropdown_item, getResources().getStringArray(R.array.cards));
         cardAutoCompleteTextView.setAdapter(cardArrayAdapter);
-        userOptionIntent = (Model) getIntent().getParcelableExtra("user_option");
+        userOptionIntent = (Phone) getIntent().getParcelableExtra("user_option");
     }
 
     public void userInfoSetter() {

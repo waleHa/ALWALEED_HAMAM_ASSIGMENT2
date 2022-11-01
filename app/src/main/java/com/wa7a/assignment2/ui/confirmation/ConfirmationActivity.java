@@ -1,22 +1,17 @@
-package com.wa7a.assignment2.UI.Confirmation;
+package com.wa7a.assignment2.ui.confirmation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.wa7a.assignment2.Model.Model;
-import com.wa7a.assignment2.Model.PaymentInfo;
-import com.wa7a.assignment2.Model.UserInfo;
-import com.wa7a.assignment2.R;
-import com.wa7a.assignment2.databinding.ActivityCheckOutBinding;
+import com.wa7a.assignment2.model.Phone;
+import com.wa7a.assignment2.model.PaymentInfo;
+import com.wa7a.assignment2.model.UserInfo;
 import com.wa7a.assignment2.databinding.ActivityConfirmationBinding;
 
 public class ConfirmationActivity extends AppCompatActivity {
-    private Model userOptionIntent;
+    private Phone userOptionIntent;
     UserInfo userInfoIntent;
     PaymentInfo paymentInfoIntent;
     TextView textViewCustomerInfo, textViewPaymentInfo, textViewProductInfo;
@@ -48,7 +43,7 @@ public class ConfirmationActivity extends AppCompatActivity {
                 + "\nCard Type: " + paymentInfoIntent.getCardType());
 
         textViewProductInfo.setText("Brand: " + userOptionIntent.getBrand() +
-                "\nModel: " + userOptionIntent.getModelName() + "\nPrice: " +
+                "\nModel: " + userOptionIntent.getPhoneModel() + "\nPrice: " +
                 userOptionIntent.getPrice() + "\nStorage: " + userOptionIntent.getSize()
                 + "\nColor: " + userOptionIntent.getColor());
     }

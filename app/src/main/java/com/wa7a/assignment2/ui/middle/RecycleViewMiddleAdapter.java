@@ -1,4 +1,4 @@
-package com.wa7a.assignment2.UI.Middle;
+package com.wa7a.assignment2.ui.middle;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,17 +8,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.wa7a.assignment2.Model.Model;
-import com.wa7a.assignment2.R;
+import com.wa7a.assignment2.model.Phone;
 import com.wa7a.assignment2.databinding.ModelCustomItemBinding;
 
 import java.util.ArrayList;
 
 public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMiddleAdapter.ModelViewHolder>{
-    ArrayList<Model> models;
+    ArrayList<Phone> phones;
     OnModelListener onModelListener;//**OnModelListener
-    public RecycleViewMiddleAdapter(ArrayList<Model> models, OnModelListener onModelListener) {
-        this.models = models;
+    public RecycleViewMiddleAdapter(ArrayList<Phone> phones, OnModelListener onModelListener) {
+        this.phones = phones;
         this.onModelListener = onModelListener;//**OnModelListener
     }
 
@@ -32,13 +31,13 @@ public class RecycleViewMiddleAdapter extends RecyclerView.Adapter<RecycleViewMi
 
     @Override
     public void onBindViewHolder(@NonNull ModelViewHolder holder, int position) {
-        Model model = models.get(position);
-        holder.ViewSetter(model.getImg(),model.getModelName(),model.getPrice());
+        Phone phone = phones.get(position);
+        holder.ViewSetter(phone.getImg(), phone.getPhoneModel(), phone.getPrice());
     }
 
     @Override
     public int getItemCount() {
-        return models.size();
+        return phones.size();
     }
 
     class ModelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

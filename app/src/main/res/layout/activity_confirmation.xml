@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#4292A6A6"
     android:orientation="vertical"
-    tools:context=".UI.Confirmation.ConfirmationActivity">
+    tools:context=".ui.confirmation.ConfirmationActivity">
 
     <TextView
         android:id="@+id/text_view_payment"

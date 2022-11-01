@@ -1,4 +1,4 @@
-package com.wa7a.assignment2.Model;
+package com.wa7a.assignment2.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

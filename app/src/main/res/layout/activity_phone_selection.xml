@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="phone"
+            type="com.wa7a.assignment2.model.Phone" />
+    </data>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UI.PhoneSelection.PhoneSelectionActivity">
+    tools:context=".ui.selection.PhoneSelectionActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -46,7 +52,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/text_view_model"
+                android:id="@+id/text_view_phone_model"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_10sdp"
@@ -162,7 +168,7 @@
         />
 
 </LinearLayout>
-
+</layout>
 
 
 <!--<com.google.android.material.textfield.TextInputLayout-->

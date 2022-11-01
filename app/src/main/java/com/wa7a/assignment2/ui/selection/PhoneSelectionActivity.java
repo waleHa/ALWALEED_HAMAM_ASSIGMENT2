@@ -1,10 +1,13 @@
-package com.wa7a.assignment2.UI.PhoneSelection;
+package com.wa7a.assignment2.ui.selection;
+
+import static com.wa7a.assignment2.constants.Constant.getPrice;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
-import android.hardware.camera2.params.Capability;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,88 +18,68 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.wa7a.assignment2.Model.Model;
+import com.wa7a.assignment2.constants.Constant;
+import com.wa7a.assignment2.model.Phone;
 import com.wa7a.assignment2.R;
-import com.wa7a.assignment2.UI.Checkout.CheckOutActivity;
-import com.wa7a.assignment2.UI.Main.MainActivity;
+import com.wa7a.assignment2.ui.checkout.CheckOutActivity;
 import com.wa7a.assignment2.databinding.ActivityPhoneSelectionBinding;
 
+import java.util.Arrays;
+
 public class PhoneSelectionActivity extends AppCompatActivity {
-    private String intentValue;
+    //    private String intentValue;
     ActivityPhoneSelectionBinding binding;
-    private Model userOptionIntent;
     ArrayAdapter<String> colorArrayAdapter;
     AutoCompleteTextView colorAutoCompleteTextView;
     RadioButton size64, size128, size256, size512;
     boolean s64 = false, s128 = false, s256 = false, s512 = false;
-    TextView brandTextView, modelTextView;
+    TextView brandTextView, phoneModelTextView;
     Button nextViewButton;
-    Model model = new Model();
+    Phone phone = new Phone();
     RadioGroup radioGroup;
     RadioButton radioButton;
-    int modelPosition;
+    int tempInt = 64;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityPhoneSelectionBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+//        binding = ActivityPhoneSelectionBinding.inflate(getLayoutInflater());
+//        setContentView(binding.getRoot());
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_middle);
         intentNBindingSetter();
-        CapacitySizeSetter();
-        ViewsSetter();
+        capacitySizeSetter();
+        viewsSetter();
     }
 
-    private void ViewsSetter() {
-        brandTextView.setText("Brand: " + model.getBrand());
-        modelTextView.setText("Model Name: " + model.getModelName());
+    private void viewsSetter() {
+        brandTextView.setText("Brand: " + phone.getBrand());
+        phoneModelTextView.setText("Phone Model Name: " + phone.getPhoneModel());
         colorArrayAdapter = new ArrayAdapter<String>(this, R.layout.text_dropdown_item, getResources().getStringArray(R.array.colors));
         colorAutoCompleteTextView.setAdapter(colorArrayAdapter);
         colorAutoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = adapterView.getItemAtPosition(i).toString();
-                model.setColor(item);
+                phone.setColor(item);
             }
         });
         nextViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Validate()) {
-                    Intent intent = new Intent(getBaseContext(), CheckOutActivity.class);
-                    userOptionIntent.setSize(model.getSize());
-                    userOptionIntent.setColor(model.getColor());
-                    userOptionIntent.setPrice(model.getPrice());
-                    intent.putExtra("user_option", userOptionIntent);
-                    startActivity(intent);
+                if (colorAutoCompleteTextView.getText().length() > 2) {
+                    if (radioButtonSetterNValidate()) {
+                        Intent intent = new Intent(getBaseContext(), CheckOutActivity.class);
+                        intent.putExtra("user_option", phone);
+                        startActivity(intent);
+                    }
                 }
             }
         });
     }
 
 
-    private void CapacitySizeSetter() {
-        if (intentValue.equals(getResources().getString(R.string.IPHONE))) {
-            model = Model.getIphoneLists().get(modelPosition);
-            setCapacity(getResources().getStringArray(R.array.iphone_storage_capacity));
-        }
-        if (intentValue.equals(getResources().getString(R.string.GOOGLE_PIXEL))) {
-            model = Model.getPixelLists().get(modelPosition);
-            setCapacity(getResources().getStringArray(R.array.pixel_storage_capacity));
-        }
-        if (intentValue.equals(getResources().getString(R.string.OPPO))) {
-            model = Model.getOppoLists().get(modelPosition);
-            setCapacity(getResources().getStringArray(R.array.oppo_storage_capacity));
-        }
-        if (intentValue.equals(getResources().getString(R.string.SAMSUNG))) {
-            model = Model.getSamsungLists().get(modelPosition);
-            setCapacity(getResources().getStringArray(R.array.samsung_storage_capacity));
-        }
-    }
-
     public void intentNBindingSetter() {
-        intentValue = getIntent().getStringExtra("phone");
-        userOptionIntent = getIntent().getParcelableExtra("user_option");
-        modelPosition = getIntent().getIntExtra("position", 0);
+        phone = getIntent().getParcelableExtra("user_option");
         colorAutoCompleteTextView = binding.autoCompleteTextViewColor;
         size64 = binding.size64;
         size128 = binding.size128;
@@ -104,8 +87,27 @@ public class PhoneSelectionActivity extends AppCompatActivity {
         size512 = binding.size512;
         radioGroup = binding.radioGroup;
         brandTextView = binding.textViewBrand;
-        modelTextView = binding.textViewModel;
+        phoneModelTextView = binding.textViewPhoneModel;
         nextViewButton = binding.nextViewButton;
+    }
+
+    private void capacitySizeSetter() {
+        String[] brandName = new String[0];
+        if (phone.getBrand() != null) {
+            if (phone.getBrand().equals(getResources().getString(R.string.IPHONE))) {
+                brandName = Arrays.copyOf(getResources().getStringArray(R.array.iphone_storage_capacity), getResources().getStringArray(R.array.iphone_storage_capacity).length);
+            }
+            if (phone.getBrand().equals(getResources().getString(R.string.GOOGLE_PIXEL))) {
+                brandName = Arrays.copyOf(getResources().getStringArray(R.array.pixel_storage_capacity), getResources().getStringArray(R.array.pixel_storage_capacity).length);
+            }
+            if (phone.getBrand().equals(getResources().getString(R.string.OPPO))) {
+                brandName = Arrays.copyOf(getResources().getStringArray(R.array.oppo_storage_capacity), getResources().getStringArray(R.array.oppo_storage_capacity).length);
+            }
+            if (phone.getBrand().equals(getResources().getString(R.string.SAMSUNG))) {
+                brandName = Arrays.copyOf(getResources().getStringArray(R.array.samsung_storage_capacity), getResources().getStringArray(R.array.samsung_storage_capacity).length);
+            }
+            setCapacity(brandName);
+        }
     }
 
     public void setCapacity(String[] str) {
@@ -114,40 +116,33 @@ public class PhoneSelectionActivity extends AppCompatActivity {
                 if ((str)[i].equals("64")) {
                     size64.setVisibility(View.VISIBLE);
                     s64 = true;
-                    model.setSize(64);
+                    phone.setSize(64);
                 } else if (str[i].equals("128")) {
                     size128.setVisibility(View.VISIBLE);
                     s128 = true;
-                    model.setSize(128);
+                    phone.setSize(128);
                 } else if (str[i].equals("256")) {
                     size256.setVisibility(View.VISIBLE);
                     s256 = true;
-                    model.setSize(256);
+                    phone.setSize(256);
                 } else if (str[i].equals("512")) {
                     size512.setVisibility(View.VISIBLE);
                     s512 = true;
-                    model.setSize(512);
+                    phone.setSize(512);
                 }
             }
         }
     }
 
-    public boolean Validate() {
-        if (colorAutoCompleteTextView.getText().length() > 2) {
-            return radioButtonSetterNValidate();
-        }
-        return false;
-    }
-
     public boolean radioButtonSetterNValidate() {
         int radioId = radioGroup.getCheckedRadioButtonId();
+        Log.d("XPrice1 is: ", Constant.priceSetter(128, 1000, 1100, 1200, 1300) + "");
         if (radioId != -1 && radioId > 0) {
             radioButton = findViewById(radioId);
             if (radioButton.getText() != null) {
                 String tempStr = (String) radioButton.getText();
                 int tempInt = Integer.parseInt(tempStr);
-                model.setPrice(Model.getPrice(model.getBrand(), model.getModelName(), tempInt));
-                Toast.makeText(this, Model.getPrice(model.getBrand(), model.getModelName(), tempInt) + "$", Toast.LENGTH_SHORT).show();
+                phone.setPrice(getPrice(phone.getBrand(), phone.getPhoneModel(), tempInt));
                 return true;
             }
         }
@@ -160,3 +155,7 @@ public class PhoneSelectionActivity extends AppCompatActivity {
     }
 
 }
+
+// data binding
+// parecelable
+// binding adapter
